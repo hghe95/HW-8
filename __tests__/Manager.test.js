@@ -10,7 +10,7 @@ test(`Adds new Manager`, () => {
 });
 
 test(`Tests methods within the Manager class`, () => {
-    const employeeInstance = new Employee('Henry He', 1, 'hghe95@gmail.com');
+    const employeeInstance = new Employee('Henry He', 1, 7);
 
     expect(employeeInstance.getName()).toBe(employeeInstance.name);
     expect(employeeInstance.getID()).toBe(employeeInstance.id);

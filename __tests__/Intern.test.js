@@ -1,7 +1,7 @@
 const Employee = require("./lib/Employee");
 
 test(`Adds new Intern`, () => {
-    const employeeInstance = new Intern(`Henry He`, 1, 'hghe95@gmail.com',);
+    const employeeInstance = new Intern(`Henry He`, 1, 'Western Washington University',);
 
     expect(employeeInstance.name).toBe('Henry He');
     expect(employeeInstance.id).toEqual(expect.any(Number));
@@ -10,7 +10,7 @@ test(`Adds new Intern`, () => {
 });
 
 test(`Tests methods within the Intern class`, () => {
-    const employeeInstance = new Employee('Henry He', 1, 'hghe95@gmail.com');
+    const employeeInstance = new Employee('Henry He', 1, 'Western Washington University');
 
     expect(employeeInstance.getName()).toBe(employeeInstance.name);
     expect(employeeInstance.getID()).toBe(employeeInstance.id);

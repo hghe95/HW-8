@@ -10,7 +10,7 @@ test(`Adds new Engineer`, () => {
 });
 
 test(`Tests methods within the Engineer class`, () => {
-    const employeeInstance = new Employee('Henry He', 1, 'hghe95@gmail.com');
+    const employeeInstance = new Employee('Henry He', 1, 'hghe95@gmail.com', 'hghe95');
 
     expect(employeeInstance.getName()).toBe(employeeInstance.name);
     expect(employeeInstance.getID()).toBe(employeeInstance.id);
