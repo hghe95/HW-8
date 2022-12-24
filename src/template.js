@@ -1,6 +1,5 @@
 const generateIntern = (intern) => {
-    return
-    `
+    return`
     <div class="col-5>
         <div class="card>
             <div>
@@ -14,12 +13,11 @@ const generateIntern = (intern) => {
             </ul>
         </div>
     </div>
-    `
+    `;
 }
 
 const generateEngineer = (engineer) => {
-    return
-    `
+    return`
     <div class="col-5>
         <div class="card>
             <div>
@@ -33,12 +31,11 @@ const generateEngineer = (engineer) => {
             </ul>
         </div>
     </div>
-    `
+    `;
 }
 
 const generateManager = (manager) => {
-    return
-    `
+    return`
     <div class="col-5>
         <div class="card>
             <div>
@@ -52,30 +49,68 @@ const generateManager = (manager) => {
             </ul>
         </div>
     </div>
-    `
+    `;
 }
 
-const htmlTemplate = (data) => {
-    return
-    `<!DOCTYPE html>
+const htmlTemplate = (teamCards) => {
+    return`
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Team</title>
-        <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="style.css">
+        <title>Team Daemons</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="style.css"/>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"
+        />
     </head>
     <body>
-    
+        <div class="container-fluid">
+            <div>
+                <div>
+                    <h1> Team Daemons </h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                ${teamCards}
+            </div>
+        </div>
     </body>
     </html>`
 }
 
 const generateHTML = (data) => {
     teamArray = [];
-    
+    for (let i = 0; i < data.lenght; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+
+        if (role === `Intern`) {
+            const internCard = generateIntern(employee);
+            teamArray.push(internCard);
+        } else if (role === `Engineer`) {
+            const engineerCard = generateEngineer(employee);
+            teamArray.push(engineerCard);
+        } else if (role === `Manager`) {
+            const managerCard = generateManager(employee);
+            teamArray.push(managerCard);
+        }
+    }
+
+    const teamCards = teamArray.join(``);
+    const makeTeam = htmlTemplate(teamCards);
+    return makeTeam;
 }
 
 module.exports = generateHTML;
