@@ -1,4 +1,5 @@
 const fs = require("fs");
+const generateHTML = require("./src/template")
 const inquirer = require("inquirer");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
@@ -117,7 +118,7 @@ const init = () => {
 }
 
 const html = () => {
-    fs.writeFileSync()
+    fs.writeFileSync(outputPath, generateHTML(team));
 }
 
 init();

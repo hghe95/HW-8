@@ -1,4 +1,4 @@
-const Employee = require("./lib/Employee");
+const Employee = require("../lib/Intern");
 
 test(`Adds new Intern`, () => {
     const employeeInstance = new Intern(`Henry He`, 1, 'Western Washington University',);
