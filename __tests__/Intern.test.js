@@ -1,4 +1,4 @@
-const Employee = require("../lib/Intern");
+const Intern = require("../lib/Intern");
 
 test(`Adds new Intern`, () => {
     const employeeInstance = new Intern(`Henry He`, 1, 'Western Washington University',);
@@ -10,7 +10,7 @@ test(`Adds new Intern`, () => {
 });
 
 test(`Tests methods within the Intern class`, () => {
-    const employeeInstance = new Employee('Henry He', 1, 'Western Washington University');
+    const employeeInstance = new Intern('Henry He', 1, 'Western Washington University');
 
     expect(employeeInstance.getName()).toBe(employeeInstance.name);
     expect(employeeInstance.getID()).toBe(employeeInstance.id);

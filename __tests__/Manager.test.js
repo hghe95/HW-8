@@ -1,7 +1,7 @@
-const Employee = require("../lib/Manager");
+const Manager = require("../lib/Manager");
 
 test(`Adds new Manager`, () => {
-    const employeeInstance = new Engineer(`Henry He`, 1, 'hghe95@gmail.com', 7);
+    const employeeInstance = new Manager(`Henry He`, 1, 'hghe95@gmail.com', 7);
 
     expect(employeeInstance.name).toBe('Henry He');
     expect(employeeInstance.id).toEqual(expect.any(Number));
@@ -10,7 +10,7 @@ test(`Adds new Manager`, () => {
 });
 
 test(`Tests methods within the Manager class`, () => {
-    const employeeInstance = new Employee('Henry He', 1, 7);
+    const employeeInstance = new Manager('Henry He', 1, 7);
 
     expect(employeeInstance.getName()).toBe(employeeInstance.name);
     expect(employeeInstance.getID()).toBe(employeeInstance.id);
