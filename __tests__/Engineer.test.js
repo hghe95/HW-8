@@ -1,20 +1,16 @@
 const Engineer = require("../lib/Engineer");
 
-test(`Adds new Engineer`, () => {
-    const employeeInstance = new Engineer(`Henry He`, 1, 'hghe95@gmail.com', `hghe95`);
-
-    expect(employeeInstance.name).toBe('Henry He');
-    expect(employeeInstance.id).toEqual(expect.any(Number));
-    expect(employeeInstance.email).toEqual(expect.any(String));
-    expect(employeeInstance.github).toEqual(expect.any(String));
+test(`Adds Engineer object`, () => {
+    const engineerInstance = new Engineer(`Henry He`, 1, 'hghe95@gmail.com', `hghe95`);
+    expect(engineerInstance.github).toEqual(expect.any(String));
 });
 
-test(`Tests methods within the Engineer class`, () => {
-    const employeeInstance = new Engineer('Henry He', 1, 'hghe95@gmail.com', 'hghe95');
+test(`Tests github`, () => {
+    const engineerInstance = new Engineer('Henry He', 1, 'hghe95@gmail.com', 'hghe95');
+    expect(engineerInstance.getGithub()).toEqual(expect.stringContaining(engineerInstance.github.toString()));
+});
 
-    expect(employeeInstance.getName()).toBe(employeeInstance.name);
-    expect(employeeInstance.getID()).toBe(employeeInstance.id);
-    expect(employeeInstance.getEmail()).toBe(employeeInstance.email);
-    expect(employeeInstance.getGithub()).toBe(employeeInstance.github);
-    expect(employeeInstance.getRole()).toBe(`Engineer`);
+test(`Tests role`, () => {
+    const engineerInstance = new Engineer('Henry He', 1, 'hghe95@gmail.com', 'hghe95');
+    expect(engineerInstance.getRole()).toEqual(`Engineer`);
 });

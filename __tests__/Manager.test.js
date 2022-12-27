@@ -1,20 +1,16 @@
 const Manager = require("../lib/Manager");
 
-test(`Adds new Manager`, () => {
-    const employeeInstance = new Manager(`Henry He`, 1, 'hghe95@gmail.com', 7);
-
-    expect(employeeInstance.name).toBe('Henry He');
-    expect(employeeInstance.id).toEqual(expect.any(Number));
-    expect(employeeInstance.email).toEqual(expect.any(String));
-    expect(employeeInstance.office).toEqual(expect.any(String));
+test(`Adds Manager object`, () => {
+    const managerInstance = new Manager(`Henry He`, 1, 'hghe95@gmail.com', 1);
+    expect(managerInstance.officeNumber).toEqual(expect.any(Number));
 });
 
-test(`Tests methods within the Manager class`, () => {
-    const employeeInstance = new Manager('Henry He', 1, 7);
+test(`Tests office number`, () => {
+    const managerInstance = new Manager('Henry He', 1, 'hghe95@gmail.com', 1);
+    expect(managerInstance.getOffice()).toEqual(managerInstance.officeNumber);
+});
 
-    expect(employeeInstance.getName()).toBe(employeeInstance.name);
-    expect(employeeInstance.getID()).toBe(employeeInstance.id);
-    expect(employeeInstance.getEmail()).toBe(employeeInstance.email);
-    expect(employeeInstance.getOfficel()).toBe(employeeInstance.office);
-    expect(employeeInstance.getRole()).toBe(`Manager`);
+test(`Tests role`, () => {
+    const managerInstance = new Manager('Henry He', 1, 'hghe95@gmail.com', 1);
+    expect(managerInstance.getRole()).toEqual(`Manager`);
 });
