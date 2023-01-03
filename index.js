@@ -34,6 +34,7 @@ const addIntern = () => {
     ]).then(answers => {
         const internInfo = new Intern(answers.internName, answers.internID, answers.internEmail, answers.school);
         team.push(internInfo);
+        init();
     })
 }
 
@@ -62,6 +63,7 @@ const addEngineer = () => {
     ]).then(answers => {
         const engineerInfo = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.github);
         team.push(engineerInfo);
+        init();
     })
 }
 
@@ -90,6 +92,7 @@ const addManager = () => {
     ]).then(answers => {
         const managerInfo = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.office);
         team.push(managerInfo);
+        init();
     })
 }
 
@@ -105,16 +108,16 @@ const init = () => {
         switch(userInput.addMember){
             case "Intern":
                 addIntern();
-                init();
+                break;
             case "Engineer":
                 addEngineer();
-                init();
+                break;
             case "Manager":
                 addManager();
-                init();
+                break;
             case "Stop":
                 html();
-                break
+                break;
         }
     })
 }
