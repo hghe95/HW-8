@@ -4,11 +4,12 @@ const inquirer = require("inquirer");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
+const path = require("path");
+const OUTPUT_DIR = path.resolve(__dirname, "dist");
+const outputPath = path.join(OUTPUT_DIR, "teamWebpage.html");
+const team = [];
 
-
-let team = [];
-
-let addIntern = () => {
+const addIntern = () => {
     inquirer.prompt([
     {
         type: "input",
@@ -36,7 +37,7 @@ let addIntern = () => {
     })
 }
 
-let addEngineer = () => {
+const addEngineer = () => {
     inquirer.prompt([
     {
         type: "input",
@@ -64,7 +65,7 @@ let addEngineer = () => {
     })
 }
 
-let addManager = () => {
+const addManager = () => {
     inquirer.prompt([
     {
         type: "input",
@@ -98,27 +99,33 @@ const init = () => {
             type: 'list',
             name: 'addMember',
             message: 'Please add an employee to this team',
-            choices: ["Intern", "Engineer", "Manager"]
+            choices: ["Intern", "Engineer", "Manager", "Stop"]
         }
     ]).then(function (userInput) {
         switch(userInput.addMember){
             case "Intern":
                 addIntern();
-                break;
+                init();
             case "Engineer":
                 addEngineer();
-                break;
+                init();
             case "Manager":
                 addManager();
-                break;
-            default:
+                init();
+            case "Stop":
                 html();
+                break
         }
     })
 }
 
 const html = () => {
-    fs.writeFileSync(outputPath, generateHTML(team));
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.writeFile(OUTPUT_DIR);
+    } else {
+        fs.writeFileSync(outputPath, generateHTML(team), 'utf-8');
+        console.log(`Please refer to teamWebpage.html in the dist folder`);
+    }
 }
 
 init();
