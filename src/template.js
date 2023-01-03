@@ -1,7 +1,7 @@
 const generateIntern = intern => {
     return`
             <div class="col-5">
-                <div class="card>
+                <div class="card">
                     <div class="name-role">
                         <h2>${intern.name}</h3>
                         <h4>Intern<h4>
@@ -19,10 +19,10 @@ const generateIntern = intern => {
 const generateEngineer = engineer => {
     return`
             <div class="col-5">
-                <div class="card>
+                <div class="card">
                     <div class="name-role">
                         <h2>${engineer.name}</h3>
-                        <h4>Manager<h4>
+                        <h4>Engineer<h4>
                     </div>
                     <ul class ="card-body">
                         <li>ID: ${engineer.id}</li>
@@ -37,7 +37,7 @@ const generateEngineer = engineer => {
 const generateManager = manager => {
     return`
             <div class="col-5">
-                <div class="card>
+                <div class="card">
                     <div class="name-role">
                         <h2>${manager.name}</h3>
                         <h4>Manager<h4>
@@ -57,7 +57,7 @@ const generateHTML = data => {
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole();
-
+        console.log(employee)
         if (role === `Intern`) {
             const internCard = generateIntern(employee);
             teamArray.push(internCard);

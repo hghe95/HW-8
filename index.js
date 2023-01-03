@@ -126,6 +126,7 @@ const html = () => {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.writeFile(OUTPUT_DIR);
     } else {
+        console.log(team);
         fs.writeFileSync(outputPath, generateHTML(team), 'utf-8');
         console.log(`Please refer to teamWebpage.html in the dist folder`);
     }
